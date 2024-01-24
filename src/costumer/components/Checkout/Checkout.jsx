@@ -8,7 +8,8 @@ import Typography from "@mui/material/Typography";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import OrderSummary from "./OrderSummary";
-import AddAddress from "./AddAddress.JSX";
+import AddAddress from "./AddAddress";
+
 
 
 const steps = [
