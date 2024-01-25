@@ -118,7 +118,6 @@ export const navigation = {
       },
     ],
     pages: [
-      { name: 'About', id: '/about',href: `/about`},
-      { name: 'Contact', id: '/' ,href: `/contact`},
+
     ],
   }
