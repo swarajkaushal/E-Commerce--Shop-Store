@@ -8,7 +8,13 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 500,
+    // width: 500,
+    width: '80%',
+    '@media screen and (min-width: 768px)': {
+      width: '50%'
+      },
+    '@media screen and (min-width: 1024px)': {
+    width: '30%'}  ,
     bgcolor: 'background.paper',
     outline:"none",
     boxShadow: 24,
@@ -24,7 +30,7 @@ const AuthModal = ({handleClose,open}) => {
   aria-labelledby="modal-modal-title"
   aria-describedby="modal-modal-description"
 >
-  <Box sx={style}>
+  <Box sx={style} >
     {location.pathname === "/login" ? <LoginForm/> :<RegisterForm/> }
     
   </Box>
