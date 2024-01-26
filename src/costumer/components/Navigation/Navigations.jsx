@@ -156,9 +156,22 @@ export default function Navigations() {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 block p-2 text-gray-500">
+                                  {/* <a href={item.href} className="-m-2 block p-2 text-gray-500">
                                     {item.name}
-                                  </a>
+                                  </a> */}
+                                  <p
+                                    onClick={() =>
+                                      handleCategoryClick(
+                                        category,
+                                        section,
+                                        item,
+                                        close
+                                      )
+                                    }
+                                    className="m-2 block p-2 cursor-pointer  hover:text-gray-500"
+                                  >
+                                    {item.name}
+                                  </p>
                                 </li>
                               ))}
                             </ul>
@@ -191,52 +204,52 @@ export default function Navigations() {
                     </a>
                   </div> */}
                   <div className="lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {auth.user ? (
-                    <div>
-                      <Avatar
-                        className="text-white"
-                        onClick={handleUserClick}
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        // onClick={handleUserClick}
-                        sx={{
-                          bgcolor: deepPurple[500],
-                          color: "white",
-                          cursor: "pointer",
-                        }}
-                      >
-                        {auth.user?.firstName[0].toUpperCase()}
-                      </Avatar>
+                    {auth.user ? (
+                      <div>
+                        <Avatar
+                          className="text-white"
+                          onClick={handleUserClick}
+                          aria-controls={open ? "basic-menu" : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? "true" : undefined}
+                          // onClick={handleUserClick}
+                          sx={{
+                            bgcolor: deepPurple[500],
+                            color: "white",
+                            cursor: "pointer",
+                          }}
+                        >
+                          {auth.user?.firstName[0].toUpperCase()}
+                        </Avatar>
 
-                      <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={openUserMenu}
-                        onClose={handleCloseUserMenu}
-                        MenuListProps={{
-                          "aria-labelledby": "basic-button",
-                        }}
-                      >
-                        <MenuItem onClick={handleCloseUserMenu}>
-                          Profile
-                        </MenuItem>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={openUserMenu}
+                          onClose={handleCloseUserMenu}
+                          MenuListProps={{
+                            "aria-labelledby": "basic-button",
+                          }}
+                        >
+                          <MenuItem onClick={handleCloseUserMenu}>
+                            Profile
+                          </MenuItem>
 
-                        <MenuItem onClick={() => navigate("/account/order")}>
-                          My Orders
-                        </MenuItem>
-                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                      </Menu>
-                    </div>
-                  ) : (
-                    <Button
-                      onClick={handleOpen}
-                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      Signin
-                    </Button>
-                  )}
-                </div>
+                          <MenuItem onClick={() => navigate("/account/order")}>
+                            My Orders
+                          </MenuItem>
+                          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                        </Menu>
+                      </div>
+                    ) : (
+                      <Button
+                        onClick={handleOpen}
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      >
+                        Signin
+                      </Button>
+                    )}
+                  </div>
                 </div>
 
                 {/* <div className="border-t border-gray-200 px-4 py-6">
@@ -305,7 +318,7 @@ export default function Navigations() {
                             >
                               {category.name}
                             </Popover.Button>
-                          
+
 
                           </div>
 
